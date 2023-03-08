@@ -12,7 +12,7 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
-gem 'simple_form'
+
 # Use Devise for User Authentication
 gem 'devise'
 
