@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users do
+    resources :profiles, only: %i[show]
+  end
   root to: "pages#home"
   resources :games do
     resources :bookings, only: %i[new create]
