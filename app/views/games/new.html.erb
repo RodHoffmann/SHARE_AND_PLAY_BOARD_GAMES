@@ -1,0 +1,15 @@
+<h1>Add a Game</h1>
+<%= form_for(@game) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+  <%= form.label :day_price %>
+  <%= form.text_field :day_price %>
+  <%= form.label :number_players %>
+  <%= form.text_field :number_players %>
+  <%= form.label :category%>
+  <%= form.text_field :category %>
+  <%= form.submit "Save Game!"%>
+<% end %>
+ <%= link_to 'Games page', games_path %>

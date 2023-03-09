@@ -17,9 +17,10 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-
+    @game.user = current_user
     if @game.save
-      redirect_to profile_path, notice: "Game was successfully created."
+      redirect_to games_path, notice: "Game was successfully created."
+
     else
       render :new, status: :unprocessable_entity
     end
