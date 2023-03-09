@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: %i[show edit create destroy]
+
   def index
     @bookings = Booking.all
   end
@@ -17,7 +19,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
 
     if @booking.save
-      redirect_to @booking, notice: "Booking was successfully created."
+      redirect_to profile_path, notice: "Booking was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +27,7 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      redirect_to @booking, notice: "Booking was successfully updated."
+      redirect_to profile_path, notice: "Booking was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -33,7 +35,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to bookings_url, notice: "Booking was successfully destroyed."
+    redirect_to profile_path, notice: "Booking was successfully destroyed."
   end
 
   private
@@ -43,6 +45,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:name)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
