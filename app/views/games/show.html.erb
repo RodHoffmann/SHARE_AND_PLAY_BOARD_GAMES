@@ -2,7 +2,7 @@
   <h1>
     <%= @game.name %>
   </h1>
-
+ <div><%= cl_image_tag @game.photo.key %></div>
   <p>
     price this : <%= @game.day_price %>
   </p>
