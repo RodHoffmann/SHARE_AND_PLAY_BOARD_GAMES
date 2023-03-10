@@ -272,15 +272,6 @@ splendor = Game.create(
   user: User.all.sample
 )
 p splendor
-rand(5).times do
-  start = rand(10).days.ago
-  Booking.create(
-    user: User.all.sample,
-    game: Game.last,
-    start_date: start,
-    end_date: start + rand(5).days
-  )
-end
 
 dominion = Game.create(
   name: 'Dominion',
@@ -292,15 +283,6 @@ dominion = Game.create(
   user: User.all.sample
 )
 p dominion
-rand(5).times do
-  start = rand(10).days.ago
-  Booking.create(
-    user: User.all.sample,
-    game: Game.last,
-    start_date: start,
-    end_date: start + rand(5).days
-  )
-end
 
 puts "Games & Booking Created"
 puts 'Finished!'
