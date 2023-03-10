@@ -1,2 +1,19 @@
-<h1>here is the profile page</h1>
-<%= current_user.email %>
+<h1>Here is the your profile page, you can check your games and notifications</h1>
+<p>Hello <%= current_user.first_name %> !</p>
+<div class="container m-8">
+  <div class="row">
+    <% @user.games.each do |game| %>
+      <div class="col-md-3">
+            <div class="card h-100 text-center mb-5">
+              <img src="https://www.realestate.com.au/blog/images/800x450-fit,progressive,format=webp/2018/05/28101812/capi_92dd3d6ffb358967c861a8afdf4627aa_8f31c5a6589454ae46974234f3d1fc54.jpeg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title"><%= game.name %></h5>
+                <p class="card-text"><%= game.description %></p>
+                <p class="card-text"><small class="text-muted"><i class="fas fa-user"> - <%= game.number_players %></i> <i class="fas fa-dollar-sign"> - <%= game.day_price %></i></small></p>
+                <button class="btn btn-outline-primary my-2 my-sm-0 mr-3" type="submit"><%= link_to 'More Details', game_path(game) %></button>
+              </div>
+            </div>
+          </div>
+    <% end %>
+  </div>
+</div>
