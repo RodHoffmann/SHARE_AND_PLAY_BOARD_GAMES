@@ -11,7 +11,7 @@
               <h5 class="card-title"><%= game.name %></h5>
               <p class="card-text"><%= game.description %></p>
               <p class="card-text"><small class="text-muted"><i class="fas fa-user"> - <%= game.number_players %></i> <i class="fas fa-dollar-sign"> - <%= game.day_price %></i></small></p>
-              <button class="btn btn-outline-primary my-2 my-sm-0 mr-3" type="submit"><%= link_to 'More Details', game_path(game) %></button>
+              <button class="btn btn-outline-primary my-2 my-sm-0 mr-3" type="submit"><%= link_to 'More Details', new_game_booking_path(game) %></button>
             </div>
           </div>
         </div>
