@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show edit create destroy]
+  before_action :set_booking, only: %i[show edit destroy]
 
   def index
     @bookings = Booking.all
@@ -17,7 +17,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
     @booking = Booking.new(booking_params)
     @game =  Game.find(params[:game_id])
     @booking.game = @game
