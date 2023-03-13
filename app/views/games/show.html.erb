@@ -59,6 +59,17 @@
           Number of players: <%= @game.number_players %>
         </p>
         <%#= link_to 'Edit', edit_flat_path(@flat) %>
+  <h1>
+    <%= @game.name %>
+  </h1>
+ <div><%= cl_image_tag @game.photo.key %></div>
+  <p>
+    price this : <%= @game.day_price %>
+  </p>
+  <p>
+    number of players of this game is : this :<%= @game.number_players %>
+  </p>
+  <%#= link_to 'Edit', edit_flat_path(@flat) %>
 
         <%#= link_to 'Delete', flat_path(@flat), method: :delete %>
       </div>
