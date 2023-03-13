@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 // Connects to data-controller="map"
 export default class extends Controller {
   static values = {
-    apiKey: 'pk.eyJ1Ijoicm9kaG9mZm1hbm4iLCJhIjoiY2xmNnV4MDh5MDYyODNybW9iaGlwcDJzMiJ9.lRnAPpPOYXznAK6-NmKjtQ',
+    apiKey: String,
     markers: Array
   }
   connect() {
@@ -17,8 +17,10 @@ export default class extends Controller {
   }
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
       new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat])
+        .setPopup(popup)
         .addTo(this.map)
     })
   }
