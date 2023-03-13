@@ -7,7 +7,8 @@ class GamesController < ApplicationController
       {
         lat: game.user.latitude,
         lng: game.user.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { game: })
+        info_window_html: render_to_string(partial: "info_window", locals: { game: }),
+        marker_html: render_to_string(partial: 'marker')
       }
     end
   end
