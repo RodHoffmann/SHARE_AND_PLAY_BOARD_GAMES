@@ -1,0 +1,28 @@
+#home_banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://cdn.thewirecutter.com/wp-content/media/2021/07/boardgames-2048px-2233.jpg');
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  margin-top: 0;
+  padding-top: 350px;
+  padding-bottom: 50px;
+  height: 100vh;
+}
+
+.banner h1 {
+  margin: 0;
+  color: rgb(255, 255, 255);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
