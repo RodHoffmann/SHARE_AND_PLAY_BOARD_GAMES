@@ -1,7 +1,9 @@
 <div class="container" id="pgp">
 
   <div class="container m-10">
-  <h2>Check out our Games!!</h2>
+    <h2>Check out our Games!!</h2>
+  </div>
+  <div id='map' style='width: 100%; height: 300px;' data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="container m-8">
       <div class="row">
