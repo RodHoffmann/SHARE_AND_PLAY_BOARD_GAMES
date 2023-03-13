@@ -32,15 +32,15 @@
           <h2>Book <%= @game.name %>!</h2>
           <%= simple_form_for [@game, @booking] do |f| %>
           <div class="mb-3 mt-3">
-          <%= f.label 'From' %>
-          <%= f.input_field :start_date %>
+            <%= f.label 'From' %>
+            <%= f.input_field :start_date %>
           </div>
           <div>
-          <%= f.label 'to', class: 'me-4 mb-4' %>
-          <%= f.input_field :end_date %>
+            <%= f.label 'to', class: 'me-4 mb-4' %>
+            <%= f.input_field :end_date %>
           </div>
           <div class="text-center">
-          <%= f.button :submit, 'Check availability', class: 'btn btn-primary' %>
+            <%= f.button :submit, 'Check availability', class: 'btn btn-primary' %>
           </div>
           <% end %>
         </div>
@@ -59,20 +59,10 @@
           Number of players: <%= @game.number_players %>
         </p>
         <%#= link_to 'Edit', edit_flat_path(@flat) %>
-  <h1>
-    <%= @game.name %>
-  </h1>
- <div><%= cl_image_tag @game.photo.key %></div>
-  <p>
-    price this : <%= @game.day_price %>
-  </p>
-  <p>
-    number of players of this game is : this :<%= @game.number_players %>
-  </p>
-  <%#= link_to 'Edit', edit_flat_path(@flat) %>
 
         <%#= link_to 'Delete', flat_path(@flat), method: :delete %>
       </div>
     </div>
   </div>
  </div>
+ <%# test %>

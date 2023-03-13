@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show edit create destroy]
+  before_action :set_booking, only: %i[show edit destroy]
 
+    #test
   def index
     @bookings = Booking.all
   end
@@ -10,6 +11,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @game =  Game.find(params[:game_id])
   end
 
   def edit
@@ -17,9 +19,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
+    @game =  Game.find(params[:game_id])
+    @booking.game = @game
+    @booking.user = current_user
     if @booking.save
-      redirect_to profile_path, notice: "Booking was successfully created."
+      redirect_to games_path, notice: "Booking was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

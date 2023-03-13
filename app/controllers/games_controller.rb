@@ -6,6 +6,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -46,6 +47,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:name, :category, :description, :number_players, :day_price, :average_duration)
+    params.require(:game).permit(:name, :category, :description, :number_players, :day_price, :average_duration, :photo)
   end
 end
