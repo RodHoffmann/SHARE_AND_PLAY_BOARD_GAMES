@@ -3,6 +3,12 @@ class GamesController < ApplicationController
 
   def index
     @games = Game.all
+    @markers = @games.map do |game|
+      {
+        lat: game.user.latitude,
+        lng: game.user.longitude
+      }
+    end
   end
 
   def show
