@@ -1,5 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
+    <%= link_to games_path, class: "navbar-brand" do %>
+      <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <%= link_to "#", class: "navbar-brand" do %>
       <%= cl_image_tag("eunjjxvmtpacojur9vah",
       width: 200, height:50, border:"5px_solid_rgb:ff0000") %>
@@ -13,6 +15,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
+            <%= link_to "Home", games_path, class: "nav-link" %>
             <%= link_to "Menu", "#", class: "nav-link" %>
           </li>
           <li class="nav-item">
