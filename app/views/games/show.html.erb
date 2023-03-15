@@ -30,6 +30,9 @@
       <div class="col-lg-5 border border-5 d-flex">
         <div class="d-flex flex-column align-items-center col-6 flex-grow-1 justify-content-center">
           <h2>Book <%= @game.name %>!</h2>
+          <% if @notice %>
+             <div class="notice"><%= @notice %></div>
+          <% end %>
           <%= simple_form_for [@game, @booking] do |f| %>
           <div class="mb-3 mt-3">
           <%= f.label 'From' %>
@@ -41,6 +44,11 @@
           </div>
           <div class="text-center">
           <%= f.button :submit, 'Check availability', class: 'btn btn-primary' %>
+          <% if @game.available %>
+            <p>This game is available for booking.</p>
+          <% else %>
+            <p>This game is currently unavailable for booking.</p>
+          <% end %>
           </div>
           <% end %>
         </div>

@@ -5,4 +5,5 @@ class Game < ApplicationRecord
   validates :day_price, presence: true
   has_one_attached :photo
   belongs_to :user
+  has_many :notifications, dependent: :destroy
 end

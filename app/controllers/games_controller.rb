@@ -13,8 +13,15 @@ class GamesController < ApplicationController
     end
   end
 
+
   def show
+    @game = Game.find(params[:id])
     @booking = Booking.new
+    if flash[:notice]
+      # Display the flash message
+      @notice = flash[:notice]
+      flash.delete(:notice)
+    end
   end
 
   def new
