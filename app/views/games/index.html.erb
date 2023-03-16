@@ -1,29 +1,70 @@
 <div class="container" id="pgp">
-
-  <div class="container m-10">
-    <h2>Check out our Games!!</h2>
+  <div class="container m-10 text-center">
+    <h2>Games near you</h2>
   </div>
   <div id='map' style='width: 100%; height: 300px;' data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <din class ="search">
+    <%= form_with url: games_path, method: :get, class: "d-flex my-3 mx-3" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a game"
+      %>
+      <button name="button" type="submit" class="btn btn-outline-light">
+      <i class="fas fa-search"></i> Search
+      </button>
+    <% end %>
+  </din>
   <div class="container m-8">
+  <section class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center mb-5">
+          <h1 class="display-4">Book your game</h1>
+        </div>
+      </div>
       <div class="row">
         <% @games.each do |game| %>
-          <div class="col-md-3">
-            <div class="card h-100 text-center mb-5">
-              <img src="https://www.realestate.com.au/blog/images/800x450-fit,progressive,format=webp/2018/05/28101812/capi_92dd3d6ffb358967c861a8afdf4627aa_8f31c5a6589454ae46974234f3d1fc54.jpeg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><%= game.name %></h5>
-                <p class="card-text"><%= game.description %></p>
-                <p class="card-text"><small class="text-muted"><i class="fas fa-user"> - <%= game.number_players %></i> <i class="fas fa-dollar-sign"> - <%= game.day_price %></i></small></p>
-                <button class="btn btn-outline-primary my-2 my-sm-0 mr-3" type="submit"><% if current_user.games.include?(game) %>
-                  <%= link_to "My game's details", game_path(game) %>
-                  <% else %>
-                  <%= link_to 'More Details and Booking', new_game_booking_path(game) %>
-                  <% end %> </button>
+          <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+            <% if game.image.key != nil %>
+            <div class="card text-white card-has-bg click-col" style="background-image:url('<%= cl_image_path game.image.key %>');">
+              <img class="card-img d-none" src="<%= cl_image_path game.image.key %>" alt="<%= game.name %>">
+            <% else %>
+            <div class="card text-white card-has-bg click-col" style="background-image:url('<%= cl_image_path game.image.key %>');">
+              <img class="card-img d-none" src="risk.jpeg" alt="<%= game.name %>">
+            <% end %>
+              <div class="card-img-overlay d-flex flex-column">
+                <div class="card-body">
+                  <small class="card-meta mb-2"><%= game.category %></small>
+                  <h4 class="card-title mt-0"><% if current_user.games.include?(game) %>
+                        <%= link_to game.name, game_path(game), class: "text-white" %>
+                        <% else %>
+                        <%= link_to game.name, new_game_booking_path(game), class: "text-white" %>
+                        <% end %></h4>
+                  <p><%= game.description %></p>
+                  <small><i class="fa-solid fa-people-line"></i> <%= game.number_players %></small><br>
+                  <small><i class="fa-solid fa-euro-sign ms-1 me-1"></i> <%= game.day_price %></small>
+                </div>
+                <div class="card-footer">
+                  <div class="media">
+                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
+                    <div class="media-body text-black">
+                      <h6 class="my-0 d-block"><%= game.user.first_name %></h6>
+                      <small><%= game.user.address %></small>
+                      <button id="card_link" class="btn btn-outline-warning btn-rounded my-2 my-sm-0 mr-3" type="submit"><% if current_user.games.include?(game) %>
+                        <%= link_to "Details", game_path(game), class: 'text-white' %>
+                        <% else %>
+                        <%= link_to 'Details and Booking', new_game_booking_path(game), class: 'text-white' %>
+                        <% end %> </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         <% end %>
       </div>
-  </div>
+    </div>
+  </section>
 </div>

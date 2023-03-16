@@ -2,7 +2,12 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[show destroy edit update]
 
   def index
-    @games = Game.all
+
+    if params[:query].present?
+      @games = Game.search_by_name_and_category(params[:query])
+    else
+      @games = Game.all
+    end
     @markers = @games.map do |game|
       {
         lat: game.user.latitude,

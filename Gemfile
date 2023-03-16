@@ -84,3 +84,4 @@ group :test do
 end
 
 gem 'pusher'
+gem "pg_search"
