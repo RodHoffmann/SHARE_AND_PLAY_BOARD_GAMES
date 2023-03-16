@@ -8,6 +8,9 @@ class Game < ApplicationRecord
 
   has_many :bookings, dependent: :destroy
   belongs_to :user
+
+  has_many :notifications, dependent: :destroy
+
   include PgSearch::Model
   pg_search_scope :search_by_name_and_category,
     against: [ :name, :category ],

@@ -1,0 +1,9 @@
+<% @notifications.each do |notification| %>
+  <div class="notification">
+    <p><%= notification.user.firstname %> wants to book <%= notification.game.name %>.</p>
+    <% if notification.status == false %>
+      <%= link_to "Accept", accept_notification_path(notification), method: :put %>
+      <%= link_to "Reject", reject_notification_path(notification), method: :put %>
+    <% end %>
+  </div>
+<% end %>

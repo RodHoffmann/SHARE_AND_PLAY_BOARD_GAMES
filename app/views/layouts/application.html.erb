@@ -16,6 +16,16 @@
 
   <body>
     <%= render "shared/navbar" %>
+    <div id="notifications">
+      <% if user_signed_in? %>
+        <% if current_user.notifications.any? %>
+          <ul>
+            <% current_user.notifications.each do |notification| %>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
+    </div>
     <%= render "shared/flashes" %>
     <%= yield %>
     <%= render "shared/footer" %>
