@@ -47,14 +47,11 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @game = Game.find(params[:game_id])
     @booking.game = @game
-
-
-
     respond_to do |format|
       if @booking.save
-        Notification.create(user: @booking.user, game: @game, status: false)
+        Notification.create(user: @booking.game.user, game: @game, status: false)
         format.html { redirect_to profile_path, notice: 'Booking was successfully created.' }
-        format.html { redirect_to @game.user.profile_path, notice: 'Booking was successfully created.' }
+        format.html { redirect_to booking.game.user.profile_path, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new }
@@ -62,6 +59,8 @@ class BookingsController < ApplicationController
       end
     end
   end
+
+  
 
   def update
     if @booking.update(booking_params)

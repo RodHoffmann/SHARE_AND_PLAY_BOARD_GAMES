@@ -2,13 +2,6 @@
 <p>Hello <%= current_user.first_name %> !</p>
   <div class="container m-8">
 
-    <% @notifications.each do |notification| %>
-      <div class="notification">
-        <p><%= notification.user.first_name%> wants to book <%= notification.game.name %>.</p>
-          <%= link_to "Accept", accept_notification_path(notification), method: :put %>
-          <%= link_to "Reject", reject_notification_path(notification), method: :put %>
-      </div>
-   <% end %>
 
 
     <div class="row">
@@ -25,5 +18,16 @@
               </div>
             </div>
       <% end %>
+    </div>
+
+
+        <% @bookings.each do |booking| %>
+          <div class="card m-5">
+            <h5> booking was made by <%= booking.user.first_name %> for the game : <%= booking.game.name %></h5>
+            <%= link_to "Accept", games_path, method: :put %>
+            <%= link_to "Reject", games_path, method: :put %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
