@@ -3,9 +3,15 @@ class Game < ApplicationRecord
   validates :category, presence: true
   validates :number_players, presence: true
   validates :day_price, presence: true
-  
+
   has_one_attached :image
 
   has_many :bookings, dependent: :destroy
   belongs_to :user
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_category,
+    against: [ :name, :category ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
