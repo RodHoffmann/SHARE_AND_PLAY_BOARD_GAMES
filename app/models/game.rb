@@ -4,6 +4,7 @@ class Game < ApplicationRecord
   validates :number_players, presence: true
   validates :day_price, presence: true
   has_one_attached :photo
+  has_many :bookings, dependent: :destroy
   belongs_to :user
   has_many :notifications, dependent: :destroy
 end
