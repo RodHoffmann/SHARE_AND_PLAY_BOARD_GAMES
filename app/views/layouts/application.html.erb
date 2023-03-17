@@ -15,7 +15,6 @@
   </head>
 
   <body>
-  <div class="body">
       <%= render "shared/navbar" %>
       <div id="notifications">
         <% if user_signed_in? %>
@@ -31,6 +30,5 @@
       <%= yield %>
       <%= render "shared/footer" %>
       <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
-    </div>
   </body>
 </html>

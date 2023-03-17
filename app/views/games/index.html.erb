@@ -16,10 +16,10 @@
         <% @games.each do |game| %>
           <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
             <% if game.image.key != nil %>
-            <div class="card card-has-bg click-col" style="background-image:url('<%= cl_image_path game.image.key %>');">
+            <div class="text-white card card-has-bg click-col" style="background-image:url('<%= cl_image_path game.image.key %>');">
               <img class="card-img d-none" src="<%= cl_image_path game.image.key %>" alt="<%= game.name %>">
             <% else %>
-            <div class="card card-has-bg click-col" style="background-image:url('risk.jpeg');">
+            <div class="text-white card card-has-bg click-col" style="background-image:url('risk.jpeg');">
               <img class="card-img d-none" src="risk.jpeg" alt="<%= game.name %>">
             <% end %>
               <div class="card-img-overlay d-flex flex-column">
