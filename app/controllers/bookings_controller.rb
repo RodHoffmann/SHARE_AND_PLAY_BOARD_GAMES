@@ -12,6 +12,13 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @game =  Game.find(params[:game_id])
+    @markers = [
+      {
+        lat: @game.user.latitude,
+        lng: @game.user.longitude,
+        info_window_html: render_to_string(partial: "games/info_window", locals: { game: @game }),
+        marker_html: render_to_string(partial: 'games/marker', locals: { game: @game })
+      }]
   end
 
   def edit
@@ -60,7 +67,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  
+
 
   def update
     if @booking.update(booking_params)
