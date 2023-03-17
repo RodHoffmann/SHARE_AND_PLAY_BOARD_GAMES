@@ -104,30 +104,30 @@ puts "Creating Games & Booking..."
 
 require "open-uri"
 require "cloudinary"
-# image_file = URI.open("https://cf.geekdo-images.com/BZzaey2sQE406fjaqX3uRQ__imagepagezoom/img/VXHN3dvHyvwFMDyCcFP2I15jp1s=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic6652776.jpg")
-# dixit = Game.create(
-#   name: 'Dixit',
-#   category: 'Card game',
-#   description: 'By participating in this game, your imagination will be displayed',
-#   number_players: 4,
-#   day_price: 5,
-#   average_duration: 30,
-#   user: User.all.sample
-# )
-# p dixit
-# dixit.image.attach(io: image_file, filename: "dixit.jpg")
-# dixit.image.analyze
-# dixit.image.metadata["public_id"] = Cloudinary::Uploader.upload(dixit.image.blob.url, resource_type: :auto)["public_id"]
-# dixit.save
-# rand(5).times do
-#   start = rand(10).days.ago
-#   Booking.create(
-#     user: User.all.sample,
-#     game: Game.last,
-#     start_date: start,
-#     end_date: start + rand(5).days
-#   )
-# end
+image_file = URI.open("https://cf.geekdo-images.com/BZzaey2sQE406fjaqX3uRQ__imagepagezoom/img/VXHN3dvHyvwFMDyCcFP2I15jp1s=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic6652776.jpg")
+dixit = Game.create(
+  name: 'Dixit',
+  category: 'Card game',
+  description: 'By participating in this game, your imagination will be displayed',
+  number_players: 4,
+  day_price: 5,
+  average_duration: 30,
+  user: User.all.sample
+)
+p dixit
+dixit.image.attach(io: image_file, filename: "dixit.jpg")
+dixit.image.analyze
+dixit.image.metadata["public_id"] = Cloudinary::Uploader.upload(dixit.image.blob.url, resource_type: :auto)["public_id"]
+dixit.save
+rand(5).times do
+  start = rand(10).days.ago
+  Booking.create(
+    user: User.all.sample,
+    game: Game.last,
+    start_date: start,
+    end_date: start + rand(5).days
+  )
+end
 
 image_file = URI.open("https://www.hasbrorisk.com/img/risk-social.jpg")
 risk = Game.create(
