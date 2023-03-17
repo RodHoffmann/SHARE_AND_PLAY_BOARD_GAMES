@@ -82,3 +82,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'pusher'
+gem "pg_search"
