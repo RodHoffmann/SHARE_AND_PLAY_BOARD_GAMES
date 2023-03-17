@@ -1,4 +1,5 @@
 .notification {
+<<<<<<< HEAD
   border: 1px solid #ccc;
   padding: 10px;
   margin-bottom: 10px;
@@ -32,12 +33,22 @@
       text-decoration: none;
       font-size: 16px;
     }
+=======
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
 
-    .reject-btn {
-      background-color: rgb(214, 204, 222);
-      color: rgb(18, 17, 17);
-      text-decoration: none;
-      font-size: 16px;
-    }
-  }
+.notification .notification-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+>>>>>>> parent of 9d63cbb... style for notifications
+
+.notification p {
+  margin: 0;
+  line-height: 1.4;
 }

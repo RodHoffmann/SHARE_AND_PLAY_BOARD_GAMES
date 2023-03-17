@@ -60,7 +60,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  
+
 
   def update
     if @booking.update(booking_params)
