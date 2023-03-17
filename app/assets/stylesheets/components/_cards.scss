@@ -1,5 +1,13 @@
 .booking-card {
   width: 100%;
+  position: relative;
+  margin: .5rem 0 1rem 0;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+.booking-card {
+  width: 100%;
   height: 100%;
   position: relative;
   margin: .5rem 0 1rem 0;
@@ -17,7 +25,7 @@
 
 .card-body {
   padding: 24px;
-  background-color: #F8F9FA;
+  background-color: #a8bacb;
   text-align: left;
 }
 
@@ -34,4 +42,14 @@
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   border-radius: 3px;
 }
+.card .card-meta {
+  color: #121211;
+}
 
+.btn-outline-warning {
+  --bs-btn-color: #5ba9e7;
+  --bs-btn-border-color: #264258;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #16629f;
+  --bs-btn-hover-border-color: #221e1b;
+}
