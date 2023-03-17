@@ -1,6 +1,5 @@
-<div class="container">
-  <h1>Here is the your profile page, you can check your games and notifications</h1>
-  <p>Hello <%= @user.first_name %> !</p>
+<h1>Here is the your profile page, you can check your games and notifications</h1>
+<p>Hello <%= @user.first_name %> !</p>
   <div class="container m-8">
 
 
@@ -22,14 +21,13 @@
     </div>
 
 
-      <% @bookings.each do |booking| %>
-        <div class="notification">
-           <h5> Booking was made by <%= booking.user.first_name %>, for the game : <%= booking.game.name %></h5>
-          <div class="buttons">
-            <%= link_to "Accept", games_path, method: :put, class: "btn accept-btn" %>
-            <%= link_to "Reject", games_path, method: :put, class: "btn reject-btn" %>
+        <% @bookings.each do |booking| %>
+          <div class="card m-5">
+            <h5> booking was made by <%= booking.user.first_name %> for the game : <%= booking.game.name %></h5>
+            <%= link_to "Accept", games_path, method: :put %>
+            <%= link_to "Reject", games_path, method: :put %>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
