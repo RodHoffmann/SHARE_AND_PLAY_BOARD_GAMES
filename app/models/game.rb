@@ -4,5 +4,6 @@ class Game < ApplicationRecord
   validates :number_players, presence: true
   validates :day_price, presence: true
   has_one_attached :image
+  has_many_attached :images
   belongs_to :user
 end
