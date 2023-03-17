@@ -6,7 +6,7 @@
 
     <div class="row">
       <% @user.games.each do |game| %>
-        <div class="col-md-3 mb-3">
+        <div class="col-md-3">
               <div class="card h-100 text-center mb-5">
                 <img src="https://www.realestate.com.au/blog/images/800x450-fit,progressive,format=webp/2018/05/28101812/capi_92dd3d6ffb358967c861a8afdf4627aa_8f31c5a6589454ae46974234f3d1fc54.jpeg" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -22,12 +22,10 @@
 
 
         <% @bookings.each do |booking| %>
-          <div class="notification">
-            <h5> Booking was made by <%= booking.user.first_name %>, for the game : <%= booking.game.name %></h5>
-            <div class="buttons">
-              <%= link_to "Accept", games_path, method: :put, class: "btn accept-btn" %>
-              <%= link_to "Reject", games_path, method: :put, class: "btn reject-btn" %>
-            </div>
+          <div class="card m-5">
+            <h5> booking was made by <%= booking.user.first_name %> for the game : <%= booking.game.name %></h5>
+            <%= link_to "Accept", games_path, method: :put %>
+            <%= link_to "Reject", games_path, method: :put %>
           </div>
         <% end %>
       </div>
