@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_03_10_091320) do
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_03_09_105616)
-
->>>>>>> e0abbbc20cfe9b9cf22e5124a6316457f1b44e79
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_104656) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,7 +63,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_105616)
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "available", default: true
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.boolean "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_notifications_on_game_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -89,6 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_105616)
     t.string "first_name"
     t.string "last_name"
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -98,5 +106,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_09_105616)
   add_foreign_key "bookings", "games"
   add_foreign_key "bookings", "users"
   add_foreign_key "games", "users"
+  add_foreign_key "notifications", "games"
+  add_foreign_key "notifications", "users"
   add_foreign_key "profiles", "users"
 end

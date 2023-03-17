@@ -1,0 +1,33 @@
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>User</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.game.name %></td>
+        <td><%= booking.user.email %></td>
+        <td>
+          <% if booking.confirmed %>
+            Confirmed
+          <% elsif booking.rejected %>
+            Rejected
+          <% else %>
+            Pending
+          <% end %>
+        </td>
+        <td>
+          <% if booking.pending? %>
+            <%= link_to "Accept", accept_booking_path(booking), method: :patch %>
+            <%= link_to "Reject", reject_booking_path(booking), method: :patch %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
