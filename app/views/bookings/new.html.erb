@@ -51,18 +51,15 @@
         <h1>
           <%= @game.name %>
         </h1>
-
         <p>
           Price per day: €<%= @game.day_price %>
         </p>
         <p>
           Number of players: <%= @game.number_players %>
         </p>
-        <%#= link_to 'Edit', edit_flat_path(@flat) %>
-
-        <%#= link_to 'Delete', flat_path(@flat), method: :delete %>
       </div>
     </div>
+      <div id='map' style='width: 100%; height: 300px;' data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
   </div>
  </div>
- <%# test %>

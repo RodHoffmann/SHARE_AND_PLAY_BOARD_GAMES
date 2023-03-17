@@ -39,22 +39,17 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-sm border border-5">
-        <h1>
-          <%= @game.name %>
-        </h1>
-
-        <p>
-          Price per day: €<%= @game.day_price %>
-        </p>
-        <p>
-          Number of players: <%= @game.number_players %>
-        </p>
-        <%#= link_to 'Edit', edit_flat_path(@flat) %>
-  <%#= link_to 'Edit', edit_flat_path(@flat) %>
-        <%#= link_to 'Delete', flat_path(@flat), method: :delete %>
-      </div>
+    <div class="col-lg-12 border border-5">
+      <h1>
+        <%= @game.name %>
+      </h1>
+      <p>
+        Price per day: €<%= @game.day_price %>
+      </p>
+      <p>
+        Number of players: <%= @game.number_players %>
+      </p>
     </div>
+
   </div>
  </div>
