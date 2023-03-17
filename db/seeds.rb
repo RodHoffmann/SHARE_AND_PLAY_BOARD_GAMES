@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 puts "Cleaning Database..."
 
 Booking.destroy_all
@@ -101,67 +94,6 @@ puts "Users Created"
 
 # Should create games and booking for Board-games....
 puts "Creating Games & Booking..."
-
-# require "open-uri"
-# require "cloudinary"
-# image_file = URI.open("https://cf.geekdo-images.com/BZzaey2sQE406fjaqX3uRQ__imagepagezoom/img/VXHN3dvHyvwFMDyCcFP2I15jp1s=/fit-in/1200x900/filters:no_upscale():strip_icc()/pic6652776.jpg")
-# dixit = Game.create(
-#   name: 'Dixit',
-#   category: 'Card game',
-#   description: 'By participating in this game, your imagination will be displayed',
-#   number_players: 4,
-#   day_price: 5,
-#   average_duration: 30,
-#   user: User.all.sample
-# )
-# p dixit
-# dixit.image.attach(io: image_file, filename: "dixit.jpg")
-# dixit.image.analyze
-# dixit.image.metadata["public_id"] = Cloudinary::Uploader.upload(dixit.image.blob.url, resource_type: :auto)["public_id"]
-# dixit.save
-# rand(5).times do
-#   start = rand(10).days.ago
-#   Booking.create(
-#     user: User.all.sample,
-#     game: Game.last,
-#     start_date: start,
-#     end_date: start + rand(5).days
-#   )
-# end
-# require "open-uri"
-# require "cloudinary"
-
-# image_urls = [
-#   "https://assets1.ignimgs.com/2017/10/11/boardgames-beginner-1280-1-1507760592343_160w.jpg?width=1280",
-#   "https://image.api.playstation.com/cdn/EP4917/CUSA12867_00/FREE_CONTENTdKIjz7z4sFXQ0u2EhhvO/T2R_05.jpg",
-#   "https://assets-prd.ignimgs.com/2021/09/16/ticket-to-ride-europe-15th-anniversary-edition-1631823447104.jpeg?width=1920"
-# ]
-
-# image_files = image_urls.map { |url| URI.open(url) }
-
-# image_files.each_with_index do |image_file, index|
-#   dixit = Game.create(
-#     name: "Game #{index + 1}",
-#     category: "Board game",
-#     description: "This is a sample game description",
-#     number_players: 4,
-#     day_price: 10,
-#     average_duration: 60,
-#     user: User.all.sample
-#   )
-
-#   attachment = dixit.image.attach(io: image_file, filename: "dixit#{index + 1}.jpg")
-#   attachment.analyze
-#   attachment.blob.metadata["public_id"] = Cloudinary::Uploader.upload(dixit.image.blob.url, resource_type: :auto)["public_id"]
-#   dixit.save
-
-#   Booking.create(
-#     user: User.all.sample,
-#     game: dixit,
-#     start_date: rand(10).days.ago,
-#     end_date: rand(5).days.from_now
-#   )
-# end
 
 require "open-uri"
 require "cloudinary"
