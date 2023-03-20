@@ -1,33 +1,43 @@
 <div class="container">
-  <h1>Here is the your profile page, you can check your games and notifications</h1>
-  <p>Hello <%= @user.first_name %> !</p>
-  <div class="container m-8">
+ <div class="text">
+   <h1>Hello <%= @user.first_name  %> &#x1F44B;  welcome to share&play application</h1>
+   <h2>Your games List</h2>
+  </div>
 
-    <div class="row">
+  <div class="container m-8">
+   <div class="profile">
+     <div class="row">
       <% @user.games.each do |game| %>
         <div class="col-md-3">
-              <div class="card h-100 text-center mb-10">
-                <img src="https://www.realestate.com.au/blog/images/800x450-fit,progressive,format=webp/2018/05/28101812/capi_92dd3d6ffb358967c861a8afdf4627aa_8f31c5a6589454ae46974234f3d1fc54.jpeg" class="card-img-top" alt="...">
+              <div class="card h-100 text-center mb-10 " id='card-profile'  style="background-image:url('<%= cl_image_path game.image.key %>');background-repeat: no-repeat; background-size: cover;">
+                <img class="card-img d-none" src="<%= cl_image_path game.image.key %>" alt="<%= game.name %>">
                 <div class="card-body">
-                  <h5 class="card-title"><%= game.name %></h5>
-                  <p class="card-text"><%= game.description %></p>
-                  <p class="card-text"><small class="text-muted"><i class="fas fa-user"> - <%= game.number_players %></i> <i class="fas fa-dollar-sign"> - <%= game.day_price %></i></small></p>
-                  <button class="btn btn-outline-primary my-2 my-sm-0 mr-3" type="submit"><%= link_to 'More Details', game_path(game) %></button>
+                  <h5 class="card-title"><bold><%= game.name %></h5></bold>
+                  <p class="card-text"><bold>Your Game description:</bold><%= game.description %></p>
+                  <button id="profile-btn"  type="submit"><%= link_to 'More Details', game_path(game) %></button>
                 </div>
               </div>
             </div>
       <% end %>
     </div>
+   </div>
 
 
+    <div class="text">
+      <h2>Your Requests</h2>
       <% @bookings.each do |booking| %>
         <div class="notification mt-3">
-           <h5> Booking was made by <%= booking.user.first_name %>, for the game : <%= booking.game.name %></h5>
-          <div class="buttons">
-            <%= link_to "Accept", games_path, method: :put, class: "btn accept-btn" %>
-            <%= link_to "Reject", games_path, method: :put, class: "btn reject-btn" %>
+          <div class="notification-content">
+          <h5> Booking was made by <%= booking.user.first_name %>, for the game : <%= booking.game.name %></h5>
+          </div>
+          <div class="notification-actions">
+            <%= link_to "Accept", games_path, method: :put, class: "accept-btn" %>
+            <%= link_to "Reject", games_path, method: :put, class: "reject-btn" %>
           </div>
         </div>
       <% end %>
+    </div>
+
+
   </div>
 </div>
