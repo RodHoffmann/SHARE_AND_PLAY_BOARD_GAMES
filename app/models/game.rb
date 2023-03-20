@@ -7,6 +7,7 @@ class Game < ApplicationRecord
   has_one_attached :image
 
   has_many :bookings, dependent: :destroy
+  has_many_attached :images
   belongs_to :user
 
   has_many :notifications, dependent: :destroy
