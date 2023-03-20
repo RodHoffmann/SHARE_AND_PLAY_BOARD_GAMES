@@ -5,16 +5,16 @@
   </div>
 
   <div class="container m-8">
-   <div class="profile">
+   <div class="profile-card">
      <div class="row">
       <% @user.games.each do |game| %>
         <div class="col-md-3">
               <div class="card h-100 text-center mb-10 " id='card-profile'  style="background-image:url('<%= cl_image_path game.image.key %>');background-repeat: no-repeat; background-size: cover;">
                 <img class="card-img d-none" src="<%= cl_image_path game.image.key %>" alt="<%= game.name %>">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                   <h5 class="card-title"><bold><%= game.name %></h5></bold>
                   <p class="card-text"><bold>Your Game description:</bold><%= game.description %></p>
-                  <button id="profile-btn"  type="submit"><%= link_to 'More Details', game_path(game) %></button>
+                  <button class="btn-profile mt-auto  draw-border"><%= link_to 'More Details', game_path(game), class: "profile-btn" %></button>
                 </div>
               </div>
             </div>
