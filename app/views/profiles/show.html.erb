@@ -30,10 +30,7 @@
                 </div>
                 <div class="card-footer">
                   <div class="media">
-                    <img class="mr-3 rounded-circle" src="https://assets.codepen.io/460692/internal/avatars/users/default.png" alt="Generic placeholder image" style="max-width:50px">
                     <div class="media-body text-white">
-                      <h6 class="my-0 d-block"><%= game.user.first_name %></h6>
-                      <small><%= game.user.address %></small>
                       <button id="card_link" class="btn btn-outline-warning btn-rounded my-2 my-sm-0 mr-3" type="submit"><% if current_user.games.include?(game) %>
                         <%= link_to "Edit and details", game_path(game), class: 'text-white' %>
                         <% else %>
