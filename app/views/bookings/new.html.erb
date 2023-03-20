@@ -10,7 +10,7 @@
 
         <div class="carousel-inner">
           <% @game.images.each_with_index do |image, index| %>
-            <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+            <div class="carousel-item carousel-photo <%= index == 0 ? 'active' : '' %>">
               <%= image_tag(image.url, class: 'd-block w-100') %>
             </div>
           <% end %>
