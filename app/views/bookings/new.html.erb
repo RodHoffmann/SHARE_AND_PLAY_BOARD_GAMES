@@ -7,17 +7,15 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+
         <div class="carousel-inner">
-          <div class="carousel-item carousel-photo active">
-            <img src="https://assets1.ignimgs.com/2017/10/11/boardgames-beginner-1280-1-1507760592343_160w.jpg?width=1280" class="d-block w-100" alt="<%= @game.name %> img">
-          </div>
-          <div class="carousel-item carousel-photo">
-            <img src="https://image.api.playstation.com/cdn/EP4917/CUSA12867_00/FREE_CONTENTdKIjz7z4sFXQ0u2EhhvO/T2R_05.jpg" class="d-block w-100" alt="<%= @game.name %> img">
-          </div>
-          <div class="carousel-item carousel-photo">
-            <img src="https://assets-prd.ignimgs.com/2021/09/16/ticket-to-ride-europe-15th-anniversary-edition-1631823447104.jpeg?width=1920" class="d-block w-100" alt="<%= @game.name %> img">
-          </div>
+          <% @game.images.each_with_index do |image, index| %>
+            <div class="carousel-item carousel-photo <%= index == 0 ? 'active' : '' %>">
+              <%= image_tag(image.url, class: 'd-block w-100') %>
+            </div>
+          <% end %>
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
