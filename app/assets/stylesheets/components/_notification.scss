@@ -55,7 +55,7 @@
   font-weight: bold;
   text-decoration: none;
   &:hover {
-    color: rgb(226, 45, 45);
+    color: rgb(30, 83, 28);
   }
 }
 .notification .notification-actions .reject-btn {
@@ -65,7 +65,13 @@
   font-weight: bold;
   text-decoration: none;
   &:hover {
-    color: rgb(29, 148, 89);
+    color: rgb(121, 55, 44);
   }
 }
 
+.button_notifications {
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
